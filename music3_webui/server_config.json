@@ -9,7 +9,7 @@
   "idle_unload_ms": 0,
   "models": [
     {
-      "id": "music3",
+      "id": "MiniMax-Music-3",
       "family": "minimax_music3",
       "path": "/home/justin/local_llm/huggingface/MiniMax-Music3-GGUF",
       "task": "gen",

@@ -37,7 +37,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
 HOT_SERVER = os.environ.get("HOT_SERVER", "http://127.0.0.1:8080").rstrip("/")
-MODEL_ID = os.environ.get("MODEL_ID", "music3")
+MODEL_ID = os.environ.get("MODEL_ID", "MiniMax-Music-3")
 HOST = os.environ.get("HOST", "0.0.0.0")
 PORT = int(os.environ.get("PORT", "8321"))
 OUT_DIR = ROOT / "output"

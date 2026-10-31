@@ -17,7 +17,7 @@ browser ──> python proxy (music3_webui/server.py, :8321)
   the returned WAV. Loads no model itself.
 - `music3_webui/server_config.json` — hot server config: binds `0.0.0.0:8080`,
   `lazy_load: false` (load at startup), `idle_unload_ms: 0` (never unload),
-  model id `music3` at `/home/justin/local_llm/huggingface/MiniMax-Music3-GGUF`.
+  model id `MiniMax-Music-3` at `/home/justin/local_llm/huggingface/MiniMax-Music3-GGUF`.
 
 ## Run
 
@@ -47,6 +47,9 @@ curl http://<host>:8080/v1/audio/music-generations \
 To point pilgrim-dot-farm at this box, set `hosts.mlx_serve` in
 `pilgrim/config.yaml` to `http://<host>:8080` — no code changes needed
 (`prompt`/`lyrics`/`duration_seconds`/`seed`/`instrumental` all map 1:1).
+For the LiteLLM proxy path, the model id is `MiniMax-Music-3` (the proxy
+relays the model-group name in the request body verbatim), so the body must
+carry `"model": "MiniMax-Music-3"` when going through the proxy.
 Differences from mlx-serve: no 4096-token AR cap (long songs don't hard-stop
 mid-note), `duration_seconds` range is 1-600 (not 1-360), default is 60 s as
 on mlx-serve, and the tuning pass-throughs `num_inference_steps` /
@@ -59,7 +62,7 @@ Env overrides:
 | `CUDAToolkit_ROOT` | auto (`/usr/local/cuda` or `nvcc` on PATH) | build.sh CUDA toolkit |
 | `JOBS` | `nproc` | build.sh parallelism |
 | `HOT_SERVER` | `http://127.0.0.1:8080` | server.py hot server URL |
-| `MODEL_ID` | `music3` | server.py model id (config file) |
+| `MODEL_ID` | `MiniMax-Music-3` | server.py model id (config file) |
 | `PORT` / `HOST` | `8321` / `0.0.0.0` | server.py listen address |
 | `UI_PORT` | `8321` | run.sh web UI port |
 
