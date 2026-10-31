@@ -1,0 +1,68 @@
+Music 3 web UI (proxy) on http://0.0.0.0:8321
+  hot server: http://127.0.0.1:8080 (model id: music3)
+Traceback (most recent call last):
+  File "/home/justin/local_llm/audio.cpp/music3_webui/server.py", line 382, in <module>
+    main()
+  File "/home/justin/local_llm/audio.cpp/music3_webui/server.py", line 374, in main
+    print(f"  health    : {json.dumps(_hot_health())[:200]}")
+                                      ^^^^^^^^^^^
+NameError: name '_hot_health' is not defined
+[webui] "GET /api/status HTTP/1.1" 200 -
+[webui] "GET /api/status HTTP/1.1" 200 -
+[webui] "POST /api/generate HTTP/1.1" 201 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/508b3a5f9f1b HTTP/1.1" 200 -
+[webui] "GET /api/status HTTP/1.1" 200 -
+[webui] "GET /api/status HTTP/1.1" 200 -
+[webui] "POST /api/generate HTTP/1.1" 201 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /api/jobs/13198cb2d76b HTTP/1.1" 200 -
+[webui] "GET /audio/13198cb2d76b.wav HTTP/1.1" 200 -
+[webui] "GET /api/status HTTP/1.1" 200 -
+[webui] "POST /api/generate HTTP/1.1" 201 -
+[webui] "GET /api/jobs/74ecf00faa20 HTTP/1.1" 200 -
+[webui] "GET /api/jobs/74ecf00faa20 HTTP/1.1" 200 -
+[webui] "GET /api/jobs/74ecf00faa20 HTTP/1.1" 200 -
+[webui] "GET /api/jobs/74ecf00faa20 HTTP/1.1" 200 -
+[webui] "GET /api/jobs/74ecf00faa20 HTTP/1.1" 200 -
+[webui] "POST /api/generate HTTP/1.1" 201 -
+[webui] "GET /api/jobs/14b2ae2bfed2 HTTP/1.1" 200 -
+[webui] "GET /api/jobs/14b2ae2bfed2 HTTP/1.1" 200 -
+[webui] "GET /api/jobs/14b2ae2bfed2 HTTP/1.1" 200 -
+[webui] "GET /api/jobs/14b2ae2bfed2 HTTP/1.1" 200 -
+[webui] "GET /api/jobs/14b2ae2bfed2 HTTP/1.1" 200 -
+[webui] "GET / HTTP/1.1" 200 -
+[webui] "GET / HTTP/1.1" 200 -
+[webui] "GET / HTTP/1.1" 200 -
+[webui] "GET /api/status HTTP/1.1" 200 -
+[webui] "POST /api/generate HTTP/1.1" 201 -
+[webui] "GET /api/jobs/71f2a1cd87e2 HTTP/1.1" 200 -
+[webui] "GET /api/jobs/71f2a1cd87e2 HTTP/1.1" 200 -
+[webui] "GET /api/jobs/71f2a1cd87e2 HTTP/1.1" 200 -
+[webui] "GET /api/jobs/71f2a1cd87e2 HTTP/1.1" 200 -
+[webui] "GET /api/jobs/71f2a1cd87e2 HTTP/1.1" 200 -

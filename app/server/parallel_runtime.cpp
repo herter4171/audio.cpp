@@ -2184,6 +2184,48 @@ HttpResponse ParallelServerState::handle_generic_run(const std::string & body_te
     return json_response(task_result_json(timed_result.result, timed_result.wall_ms));
 }
 
+// mlx-serve-compatible music generation (POST /v1/audio/music-generations):
+// {prompt, lyrics | instrumental, duration_seconds, seed} in, raw WAV bytes
+// out. Parallel-runtime twin of ServerState::handle_music_generation.
+HttpResponse ParallelServerState::handle_music_generation(
+    const std::string & body_text) {
+    std::string fallback;
+    {
+        std::lock_guard<std::mutex> lock(models_mutex_);
+        if (models_.size() == 1) {
+            fallback = models_.front()->config.id;
+        }
+    }
+    const auto remap = remap_mlx_music_body(body_text, fallback);
+    if (remap.error) {
+        return *remap.error;
+    }
+    const auto body = engine::io::json::parse(*remap.body);
+    auto & model = require_model(body);
+    const auto busy_timeout_ms = parse_busy_timeout_override(body);
+    auto request_lease = bind_request(model, busy_timeout_ms);
+    const auto * request_json = body.find("request");
+    auto parsed_request = minitts::cli::build_request_from_json(*request_json, request_base_);
+    const auto request = apply_default_request_options(
+        model.config.default_request_options,
+        parallel_drop_unsupported_language_option(
+            std::move(parsed_request),
+            *request_json,
+            model.accepts_language));
+    const auto timed_result = model_run_mode(model) == engine::runtime::RunMode::Streaming
+        ? run_streaming_model(model, request, {}, busy_timeout_ms, request_lease)
+        : run_model(model, request, busy_timeout_ms, request_lease);
+    const auto & audio = select_audio_output(timed_result.result);
+    const auto wav = encode_pcm16_wav(audio);
+    HttpResponse response;
+    response.status = 200;
+    response.content_type = "audio/wav";
+    response.body.assign(wav.begin(), wav.end());
+    response.headers["x-audio-sample-rate"] = std::to_string(audio.sample_rate);
+    response.headers["x-generated-by"] = "audiocpp/" + model.config.id;
+    return response;
+}
+
 HttpResponse ParallelServerState::handle_generic_batch(const std::string & body_text) {
     const auto body = engine::io::json::parse(body_text);
     auto & model = require_model(body);

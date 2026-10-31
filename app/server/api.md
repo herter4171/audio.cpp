@@ -17,6 +17,7 @@ refer to entries in your server config, with the task/mode required by the route
 - [Live PCM transcription and deployment requirements](#post-v1audiotranscriptionslive)
 - [Voice discovery](#get-v1audiovoicesmodelid)
 - [Generic tasks and artifacts](#post-v1tasksrun)
+- [Music generation (mlx-serve-compatible)](#post-v1audio-music-generations)
 - [Generic streaming](#post-v1tasksstream) and [native batches](#post-v1tasksbatch)
 - [Unload selected models](#post-v1tasksunload_models) or [all models](#post-v1tasksunload_all_models)
 
@@ -489,6 +490,50 @@ Relative request paths resolve against the server's request base: normally its
 working directory, or the executable directory with native UI management.
 This differs from config-relative model paths. Absolute server-local paths work
 in either mode.
+
+## `POST /v1/audio/music-generations`
+
+Synchronous music generation with an **mlx-serve-compatible contract**: the
+same request fields the reference `mlx-serve` deployment expects, and raw WAV
+bytes as the response body (no JSON envelope, no job id, no polling). Clients
+built against that contract can write the response straight to disk.
+
+```bash
+curl http://127.0.0.1:8080/v1/audio/music-generations \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "prompt": "Global Metadata: ... Vocal Details: ... Arrangement: ...",
+    "lyrics": "[verse]\n...\n[chorus]\n...",
+    "duration_seconds": 180,
+    "seed": 1
+  }' -o song.wav
+```
+
+Request fields (only these are read; extras are ignored):
+
+| field | required | meaning |
+| --- | --- | --- |
+| `prompt` | yes | The full structured caption (Global Metadata / Vocal Details / Arrangement). Drives the music. |
+| `lyrics` | one of | Tagged lyrics (`[verse]`, `[chorus]`, ... on their own lines). |
+| `instrumental` | `false` | `true` instead of `lyrics` for an instrumental (mapped to the lone `[instrumental]` tag; the caption should declare the piece instrumental). |
+| `duration_seconds` | no | Upper bound on the AR frame budget, 1-600. The model may end sooner (lyrics exhaustion). Defaults to 60. |
+| `seed` | no | Generation seed. Same `prompt`+`lyrics`+`seed`+`duration_seconds` is byte-identical (reproducible). |
+| `model` | no | Model id. When omitted, the single configured model is used; with more than one configured model it is required. |
+
+Optional audio.cpp tuning pass-throughs (read, but not part of the mlx
+contract): `num_inference_steps`, `guidance_scale`, `ar_guidance_scale`,
+`top_k`.
+
+Response: **HTTP 200 with the WAV bytes as the body** (`Content-Type:
+audio/wav`, stereo 16-bit PCM at the model rate). `x-audio-sample-rate` and
+`x-generated-by` headers are added for convenience. Generation failures
+return the usual error envelope (400/503). Missing/invalid `prompt` or the
+`lyrics`/`instrumental` pair return 400 with the mlx-serve validation
+message.
+
+> [!NOTE]
+> This route serialises behind the same per-model run lock as
+> `/v1/tasks/run`; concurrent requests queue, not fail.
 
 ## `POST /v1/tasks/stream`
 

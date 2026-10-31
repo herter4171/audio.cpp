@@ -139,6 +139,12 @@ struct RequestDispatcher {
       } else if (request.method == "POST" && request.path == "/v1/tasks/run") {
         response = state.handle_generic_run(request.body);
       } else if (request.method == "POST" &&
+                 request.path == "/v1/audio/music-generations") {
+        // mlx-serve-compatible music endpoint: {prompt, lyrics | instrumental,
+        // duration_seconds, seed} in, raw WAV bytes out. Synchronous, like
+        // the reference mlx-serve deployment.
+        response = state.handle_music_generation(request.body);
+      } else if (request.method == "POST" &&
                  request.path == "/v1/tasks/batch") {
         response = state.handle_generic_batch(request.body);
       } else if (request.method == "POST" &&

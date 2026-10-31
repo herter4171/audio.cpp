@@ -238,6 +238,7 @@ private:
         RequestLease request_lease = {});
     HttpResponse handle_transcription_live(const HttpRequest & request);
     HttpResponse handle_generic_run(const std::string & body_text);
+    HttpResponse handle_music_generation(const std::string & body_text);
     HttpResponse handle_generic_batch(const std::string & body_text);
     HttpResponse handle_generic_stream(const std::string & body_text);
     HttpResponse handle_voices(const HttpRequest & request) const;

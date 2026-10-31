@@ -166,6 +166,9 @@ void print_help() {
         << "  POST /v1/tasks/batch\n"
         << "  POST /v1/tasks/stream\n"
         << "       events and result in one JSON body, or as SSE with stream_format=sse\n"
+        << "  POST /v1/audio/music-generations\n"
+        << "       mlx-serve-compatible music generation: prompt, lyrics | instrumental,\n"
+        << "       duration_seconds, seed in; synchronous raw WAV out\n"
         << "  POST /v1/recipes/run\n"
         << "       run a built-in multi-model recipe; set stream=true for SSE\n";
 }

@@ -1,0 +1,22 @@
+{
+  "host": "0.0.0.0",
+  "port": 8080,
+  "backend": "cuda",
+  "device": 0,
+  "threads": 4,
+  "lazy_load": false,
+  "max_loaded_models": 0,
+  "idle_unload_ms": 0,
+  "models": [
+    {
+      "id": "music3",
+      "family": "minimax_music3",
+      "path": "/home/justin/local_llm/huggingface/MiniMax-Music3-GGUF",
+      "task": "gen",
+      "mode": "offline",
+      "session_options": {
+        "minimax_music3.mem_saver": "false"
+      }
+    }
+  ]
+}

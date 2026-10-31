@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiniMax Music 3 · audio.cpp</title>
+<style>
+  :root {
+    --bg: #101418; --panel: #181e25; --panel2: #1f2731; --line: #2c3743;
+    --text: #dfe7ee; --dim: #8fa0b0; --accent: #ffb454; --accent2: #5cc8ff;
+    --ok: #7ec88a; --err: #ff7a7a; --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { padding: 18px 24px 14px; border-bottom: 1px solid var(--line);
+           display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  header h1 { font-size: 20px; margin: 0; }
+  header .sub { color: var(--dim); font-size: 13px; }
+  main { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; padding: 18px 24px;
+         max-width: 1500px; margin: 0 auto; }
+  @media (max-width: 1000px) { main { grid-template-columns: 1fr; } }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+          padding: 16px 18px; }
+  .card h2 { font-size: 14px; text-transform: uppercase; letter-spacing: .08em;
+             color: var(--dim); margin: 0 0 10px; }
+  label { display: block; font-size: 13px; color: var(--dim); margin: 12px 0 4px; }
+  textarea { width: 100%; background: var(--panel2); color: var(--text);
+             border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px;
+             font: 13.5px/1.5 var(--mono); resize: vertical; }
+  textarea:focus { outline: 1px solid var(--accent2); }
+  #lyrics { min-height: 260px; }
+  #caption { min-height: 320px; }
+  .hint { font-size: 12px; color: var(--dim); margin-top: 5px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
+  .row > div { display: flex; flex-direction: column; }
+  input[type=number] { width: 90px; background: var(--panel2); color: var(--text);
+             border: 1px solid var(--line); border-radius: 8px; padding: 7px 9px; font: 14px var(--mono); }
+  input[type=number]:focus { outline: 1px solid var(--accent2); }
+  button { border: 1px solid var(--line); border-radius: 8px; padding: 9px 18px;
+           font-size: 14px; cursor: pointer; background: var(--panel2); color: var(--text); }
+  button.primary { background: var(--accent); border-color: var(--accent);
+                   color: #201607; font-weight: 600; }
+  button.primary:disabled { opacity: .45; cursor: not-allowed; }
+  button.ghost { background: transparent; }
+  .job { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px;
+         margin-top: 10px; background: var(--panel2); }
+  .job .meta { display: flex; gap: 10px; align-items: center; font-size: 13px;
+               flex-wrap: wrap; }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 600;
+           letter-spacing: .04em; text-transform: uppercase; }
+  .badge.queued { background: #3a4657; color: #cfe0f4; }
+  .badge.running { background: #5a3d1e; color: var(--accent); }
+  .badge.done { background: #22432a; color: var(--ok); }
+  .badge.error, .badge.cancelled { background: #4a2528; color: var(--err); }
+  pre.log { margin: 8px 0 0; max-height: 240px; overflow: auto; background: #0b0f13;
+            border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px;
+            font: 11.5px/1.45 var(--mono); color: #b9c6d2; white-space: pre-wrap; }
+  audio { width: 100%; margin-top: 8px; }
+  .warns { font-size: 12px; color: var(--accent); margin-top: 8px; }
+  a { color: var(--accent2); text-decoration: none; font-size: 13px; }
+  a:hover { text-decoration: underline; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .dot.ok { background: var(--ok); } .dot.bad { background: var(--err); }
+  .footer { color: var(--dim); font-size: 12px; margin: 10px 0 0; }
+  code { font-family: var(--mono); font-size: 12px; background: var(--panel2);
+         padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>MiniMax Music 3</h1>
+  <span class="sub">audio.cpp · <span id="cliState"></span> · <span id="modelState"></span></span>
+</header>
+<main>
+  <section style="display:flex; flex-direction:column; gap:18px; min-width:0;">
+    <div class="card">
+      <h2>Lyrics</h2>
+      <textarea id="lyrics" spellcheck="false" placeholder="[verse]
+City lights are shining low.
+I keep moving with the glow.
+[chorus]
+Turn it up and let it fly.
+Sing the melody tonight."></textarea>
+      <div class="hint">
+        Section tags: <code>[intro]</code> <code>[verse]</code> <code>[pre-chorus]</code>
+        <code>[chorus]</code> <code>[bridge]</code> <code>[instrumental]</code>
+        <code>[solo]</code> <code>[outro]</code> — each tag goes on its own line
+        (text on the same line as a leading tag is dropped). Duration is an upper bound:
+        the song ends when the lyrics run out.
+      </div>
+    </div>
+    <div class="card">
+      <h2>Music description (caption)</h2>
+      <textarea id="caption" spellcheck="false" placeholder="Global Metadata: bpm is 122. key is G, and scale is minor. Bright pop rock with clean drums and crisp rhythm guitars. Global emotional progression: opens bright and forward-moving, builds through the verse, swells into an energetic anthemic chorus, resolves with a confident polished outro. Application scenarios &amp; imagery: a night drive with the windows down, city lights streaking by. Sonics &amp; production profile: polished and compressed studio mix, wide stereo, balanced mids, tight low end.
+
+Vocal Details: Vocal Gender &amp; Timbre: Singer A (Female), a clear, bright lead vocal. Vocal Style: soft and close-miked in the verse, lifted and anthemic in the chorus. Harmony/Backing Vocals: layered doubles and stacked harmonies in the chorus. Vocal FX: light reverb, subtle delay on the final line of the verse.
+
+Arrangement: primary — clean rhythm guitars, drums, bass throughout; secondary — electric guitar lead enters at the pre-chorus, layered guitars and a fuller drum feel in the chorus, stripped-down outro."></textarea>
+      <div class="hint">
+        The guide recommends exactly three headings, ~250–450 words:
+        <b>Global Metadata</b> (genre, bpm, key, emotional arc, imagery, production) ·
+        <b>Vocal Details</b> (gender &amp; timbre explicitly — the #1 cause of unwanted
+        instrumental drift is leaving vocals unspecified) · <b>Arrangement</b>
+        (primary/secondary instruments and their lifecycle).
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:18px; min-width:0;">
+    <div class="card">
+      <h2>Generate</h2>
+      <div class="row">
+        <div><label for="duration">Duration budget (s)</label>
+          <input type="number" id="duration" value="180" min="1" max="600"></div>
+        <div><label for="steps">Flow steps</label>
+          <input type="number" id="steps" value="30" min="1" max="200"></div>
+        <div><label for="guidance">Flow guidance</label>
+          <input type="number" id="guidance" value="1.7" step="0.1" min="0.1" max="10"></div>
+        <div><label for="arguidance">AR guidance</label>
+          <input type="number" id="arguidance" value="1.5" step="0.1" min="0.1" max="10"></div>
+        <div><label for="topk">Top-k</label>
+          <input type="number" id="topk" value="50" min="1" max="10000"></div>
+        <div><label for="seed">Seed</label>
+          <input type="number" id="seed" min="0"></div>
+      </div>
+      <div class="row" style="margin-top:14px;">
+        <button class="primary" id="go">Generate</button>
+        <button class="ghost" id="stop" disabled>Stop</button>
+      </div>
+      <div class="warns" id="warnings"></div>
+      <p class="footer">
+        <code>duration</code> is an AR frame budget, not a hard cap. Lower flow steps are
+        faster; try several <code>seed</code>s. Click the seed box and press
+        <b>R</b> (or use the button) for a random seed.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Jobs</h2>
+      <div id="jobs"><div class="hint">No jobs yet.</div></div>
+    </div>
+  </section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+let activePolls = new Set();
+
+function randomSeed() { $("seed").value = Math.floor(Math.random() * 1e6); }
+$("seed").addEventListener("keydown", e => { if (e.key === "r" || e.key === "R") randomSeed(); });
+randomSeed();
+
+async function refreshHeader() {
+  try {
+    const r = await fetch("/api/status"); const s = await r.json();
+    $("cliState").innerHTML = `<span class="dot ${s.cliExists ? "ok" : "bad"}"></span> CLI`;
+    $("modelState").innerHTML = `<span class="dot ${s.modelExists ? "ok" : "bad"}"></span> model`;
+  } catch { $("cliState").textContent = "server unreachable"; }
+}
+
+function esc(t) { return t.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+
+function jobEl(job) {
+  const el = document.createElement("div");
+  el.className = "job";
+  el.id = "job-" + job.id;
+  el.innerHTML = `
+    <div class="meta">
+      <span class="badge ${job.status}">${job.status}</span>
+      <span>#${job.id}</span>
+      <span class="dim" style="color:var(--dim)">${job.params.duration_sec}s · ${job.params.num_inference_steps} steps · seed ${job.params.seed}</span>
+    </div>
+    <div class="body"></div>`;
+  return el;
+}
+
+function renderJob(job) {
+  let el = document.getElementById("job-" + job.id);
+  if (!el) {
+    const list = $("jobs");
+    if (list.firstChild && list.firstChild.className === "hint") list.innerHTML = "";
+    list.prepend(jobEl(job));
+    el = document.getElementById("job-" + job.id);
+  }
+  const badge = el.querySelector(".badge");
+  badge.className = "badge " + job.status;
+  badge.textContent = job.status;
+  const body = el.querySelector(".body");
+  const dur = job.finishedAt && job.startedAt
+    ? ` · ${Math.round(job.finishedAt - job.startedAt)}s` : "";
+  let html = `<div class="meta" style="margin-top:6px;color:var(--dim)">` +
+    esc(job.error || "") + dur + `</div>`;
+  if (job.wav) {
+    html += `<audio controls src="${job.wav}"></audio>` +
+      `<div style="margin-top:6px"><a href="${job.wav}" download="${job.id}.wav">Download WAV</a></div>`;
+  }
+  if (job.log) html += `<pre class="log">${esc(job.log)}</pre>`;
+  body.innerHTML = html;
+  const log = body.querySelector("pre.log");
+  if (log) log.scrollTop = log.scrollHeight;
+  const audio = body.querySelector("audio");
+  if (audio && !audio.dataset.init) { audio.dataset.init = "1"; audio.load(); }
+  $("stop").disabled = !(job.status === "running" || job.status === "queued");
+}
+
+function poll(job) {
+  if (activePolls.has(job.id)) return;
+  activePolls.add(job.id);
+  const tick = async () => {
+    try {
+      const r = await fetch("/api/jobs/" + job.id);
+      const j = await r.json();
+      renderJob(j);
+      if (["queued", "running"].includes(j.status)) {
+        setTimeout(tick, 1500);
+      } else {
+        activePolls.delete(job.id);
+        $("go").disabled = false;
+      }
+    } catch { setTimeout(tick, 3000); }
+  };
+  tick();
+}
+
+$("go").addEventListener("click", async () => {
+  $("warnings").textContent = "";
+  randomSeed();
+  const payload = {
+    lyrics: $("lyrics").value,
+    caption: $("caption").value,
+    duration_sec: +$("duration").value,
+    num_inference_steps: +$("steps").value,
+    guidance_scale: +$("guidance").value,
+    ar_guidance_scale: +$("arguidance").value,
+    top_k: +$("topk").value,
+    seed: +$("seed").value,
+  };
+  const r = await fetch("/api/generate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  const out = await r.json();
+  if (!r.ok) {
+    $("warnings").textContent = out.error || "request failed";
+    return;
+  }
+  if (out.warnings && out.warnings.length) {
+    $("warnings").textContent = out.warnings.join(" · ");
+  }
+  $("go").disabled = true;
+  poll({ id: out.id, status: "queued" });
+});
+
+$("stop").addEventListener("click", async () => {
+  for (const id of activePolls) {
+    await fetch(`/api/jobs/${id}/cancel`, { method: "POST" });
+  }
+});
+
+async function refreshJobList() {
+  try {
+    const r = await fetch("/api/status"); const s = await r.json();
+    for (const j of s.jobs) if (["queued", "running"].includes(j.status)) poll(j);
+  } catch {}
+}
+
+refreshHeader();
+refreshJobList();
+setInterval(refreshJobList, 5000);
+setInterval(refreshHeader, 15000);
+</script>
+</body>
+</html>

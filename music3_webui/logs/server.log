@@ -1,0 +1,541 @@
+[TRACE ts=20261031-130119] runtime.model.contract_spec /home/justin/local_llm/audio.cpp/model_specs/minimax_music3.json
+[TRACE ts=20261031-130119] runtime.model.contract_spec /home/justin/local_llm/audio.cpp/model_specs/minimax_music3.json
+[TRACE ts=20261031-130119] server.model.id music3
+[TRACE ts=20261031-130119] server.model.path /home/justin/local_llm/huggingface/MiniMax-Music3-GGUF
+[TRACE ts=20261031-130119] server.model.family minimax_music3
+[TRACE ts=20261031-130119] server.model.task gen
+[TRACE ts=20261031-130119] server.model.mode offline
+[TRACE ts=20261031-130119] server.model.backend cuda
+[TRACE ts=20261031-130119] server.model.device 0
+[TRACE ts=20261031-130119] server.model.threads 4
+[TRACE ts=20261031-130119] server.model.session_option_count 1
+[TRACE ts=20261031-130119] server.model.session_options.minimax_music3.mem_saver true
+[TRACE ts=20261031-130119] runtime.model.family minimax_music3
+[TRACE ts=20261031-130119] runtime.model.variant MiniMax Music 3
+[TRACE ts=20261031-130119] runtime.model.root /home/justin/local_llm/huggingface/MiniMax-Music3-GGUF
+[TRACE ts=20261031-130119] runtime.model.discovered_config_count 8
+[TRACE ts=20261031-130119] runtime.model.discovered_weight_count 11
+[TRACE ts=20261031-130119] runtime.model.task_count 1
+[TRACE ts=20261031-130119] runtime.model.language_count 1
+[TRACE ts=20261031-130119] runtime.model.supports_speaker_reference 0
+[TRACE ts=20261031-130119] runtime.model.supports_style_condition 1
+[TRACE ts=20261031-130119] runtime.model.supports_timestamps 0
+[TRACE ts=20261031-130119] minimax_music3.perf_mode off
+[TRACE ts=20261031-130119] minimax_music3.kv_cache_alignment 1
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=POST path=/v1/tasks/run content_length=1119 transfer_encoding=<none> incremental=false prefetched_body_bytes=1119
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/tasks/run body_bytes=1119
+[TIMING ts=20261031-130209] minimax_music3.global_lm.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130209] minimax_music3.global_lm.weights.ctx_used_mb 0.1400299072265625
+[TIMING ts=20261031-130209] minimax_music3.global_lm.weights.buffer_mb 5325.677978515625
+[TIMING ts=20261031-130209] minimax_music3.global_lm.weights.buffer_name CUDA0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[TIMING ts=20261031-130224] minimax_music3.depth.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130224] minimax_music3.depth.weights.ctx_used_mb 0.0164947509765625
+[TIMING ts=20261031-130224] minimax_music3.depth.weights.buffer_mb 681.015625
+[TIMING ts=20261031-130224] minimax_music3.depth.weights.buffer_name CUDA0
+[TIMING ts=20261031-130225] minimax_music3.ar.batched_prefill.graph.build_ms 2.324156
+[TIMING ts=20261031-130225] minimax_music3.ar.batched_prefill.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-130225] minimax_music3.ar.batched_prefill.graph.ctx_used_mb 3.128509521484375
+[TIMING ts=20261031-130226] minimax_music3.ar.batched_decode.graph.build_ms 75.723306
+[TIMING ts=20261031-130226] minimax_music3.ar.batched_decode.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-130226] minimax_music3.ar.batched_decode.graph.ctx_used_mb 3.2032623291015625
+[TIMING ts=20261031-130237] minimax_music3.ar.semantic_ms 29.544244000000006
+[TIMING ts=20261031-130237] minimax_music3.ar.depth_ms 6145.182990000002
+[TIMING ts=20261031-130237] minimax_music3.ar.feedback_ms 12.347461
+[TIMING ts=20261031-130237] minimax_music3.ar.lm_decode_ms 5164.076093999999
+[TIMING ts=20261031-130237] minimax_music3.ar.total_ms 11826.306927
+[TIMING ts=20261031-130237] minimax_music3.condition.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130237] minimax_music3.condition.weights.ctx_used_mb 0.000701904296875
+[TIMING ts=20261031-130237] minimax_music3.condition.weights.buffer_mb 96.0078125
+[TIMING ts=20261031-130237] minimax_music3.condition.weights.buffer_name CUDA0
+[TIMING ts=20261031-130238] minimax_music3.flow.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130238] minimax_music3.flow.weights.ctx_used_mb 0.1547698974609375
+[TIMING ts=20261031-130238] minimax_music3.flow.weights.buffer_mb 1331.656982421875
+[TIMING ts=20261031-130238] minimax_music3.flow.weights.buffer_name CUDA0
+[TIMING ts=20261031-130242] minimax_music3.condition.total_ms 10.18913
+[TIMING ts=20261031-130246] minimax_music3.flow.total_ms 3892.804161
+[TIMING ts=20261031-130246] minimax_music3.condition.total_ms 7.448793
+[TIMING ts=20261031-130249] minimax_music3.flow.total_ms 2846.19612
+[TIMING ts=20261031-130249] minimax_music3.vocoder.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130249] minimax_music3.vocoder.weights.ctx_used_mb 0.0319366455078125
+[TIMING ts=20261031-130249] minimax_music3.vocoder.weights.buffer_mb 206.59521484375
+[TIMING ts=20261031-130249] minimax_music3.vocoder.weights.buffer_name CUDA0
+[TIMING ts=20261031-130250] minimax_music3.vocoder.total_ms 694.095568
+[TIMING ts=20261031-130250] minimax_music3.vocoder.total_ms 534.413336
+[TIMING ts=20261031-130250] minimax_music3.flow_vocoder.total_ms 13226.316201
+[TIMING ts=20261031-130250] session.wall_ms 41934.856101
+[SERVER_HTTP_DEBUG] http.headers method=POST path=/v1/tasks/run content_length=316 transfer_encoding=<none> incremental=false prefetched_body_bytes=316
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/tasks/run body_bytes=316
+[TIMING ts=20261031-130321] minimax_music3.global_lm.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130321] minimax_music3.global_lm.weights.ctx_used_mb 0.1400299072265625
+[TIMING ts=20261031-130321] minimax_music3.global_lm.weights.buffer_mb 5325.677978515625
+[TIMING ts=20261031-130321] minimax_music3.global_lm.weights.buffer_name CUDA0
+[TIMING ts=20261031-130336] minimax_music3.depth.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130336] minimax_music3.depth.weights.ctx_used_mb 0.0164947509765625
+[TIMING ts=20261031-130336] minimax_music3.depth.weights.buffer_mb 681.015625
+[TIMING ts=20261031-130336] minimax_music3.depth.weights.buffer_name CUDA0
+[TIMING ts=20261031-130337] minimax_music3.ar.batched_prefill.graph.build_ms 1.133965
+[TIMING ts=20261031-130337] minimax_music3.ar.batched_prefill.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-130337] minimax_music3.ar.batched_prefill.graph.ctx_used_mb 3.128509521484375
+[TIMING ts=20261031-130337] minimax_music3.ar.batched_decode.graph.build_ms 13.721217
+[TIMING ts=20261031-130337] minimax_music3.ar.batched_decode.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-130337] minimax_music3.ar.batched_decode.graph.ctx_used_mb 3.2032623291015625
+[TIMING ts=20261031-130343] minimax_music3.ar.semantic_ms 15.058868000000002
+[TIMING ts=20261031-130343] minimax_music3.ar.depth_ms 2991.282497999999
+[TIMING ts=20261031-130343] minimax_music3.ar.feedback_ms 5.073302999999999
+[TIMING ts=20261031-130343] minimax_music3.ar.lm_decode_ms 2481.506803
+[TIMING ts=20261031-130343] minimax_music3.ar.total_ms 5584.030575
+[TIMING ts=20261031-130343] minimax_music3.condition.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130343] minimax_music3.condition.weights.ctx_used_mb 0.000701904296875
+[TIMING ts=20261031-130343] minimax_music3.condition.weights.buffer_mb 96.0078125
+[TIMING ts=20261031-130343] minimax_music3.condition.weights.buffer_name CUDA0
+[TIMING ts=20261031-130343] minimax_music3.flow.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130343] minimax_music3.flow.weights.ctx_used_mb 0.1547698974609375
+[TIMING ts=20261031-130343] minimax_music3.flow.weights.buffer_mb 1331.656982421875
+[TIMING ts=20261031-130343] minimax_music3.flow.weights.buffer_name CUDA0
+[TIMING ts=20261031-130348] minimax_music3.condition.total_ms 25.921182
+[TIMING ts=20261031-130350] minimax_music3.flow.total_ms 1478.151169
+[TIMING ts=20261031-130350] minimax_music3.vocoder.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130350] minimax_music3.vocoder.weights.ctx_used_mb 0.0319366455078125
+[TIMING ts=20261031-130350] minimax_music3.vocoder.weights.buffer_mb 206.59521484375
+[TIMING ts=20261031-130350] minimax_music3.vocoder.weights.buffer_name CUDA0
+[TIMING ts=20261031-130350] minimax_music3.vocoder.total_ms 431.943829
+[TIMING ts=20261031-130350] minimax_music3.flow_vocoder.total_ms 7390.387897
+[TIMING ts=20261031-130350] session.wall_ms 29667.700062
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=POST path=/v1/tasks/run content_length=521 transfer_encoding=<none> incremental=false prefetched_body_bytes=521
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/tasks/run body_bytes=521
+[TIMING ts=20261031-130414] minimax_music3.global_lm.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130414] minimax_music3.global_lm.weights.ctx_used_mb 0.1400299072265625
+[TIMING ts=20261031-130414] minimax_music3.global_lm.weights.buffer_mb 5325.677978515625
+[TIMING ts=20261031-130414] minimax_music3.global_lm.weights.buffer_name CUDA0
+[TIMING ts=20261031-130432] minimax_music3.depth.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130432] minimax_music3.depth.weights.ctx_used_mb 0.0164947509765625
+[TIMING ts=20261031-130432] minimax_music3.depth.weights.buffer_mb 681.015625
+[TIMING ts=20261031-130432] minimax_music3.depth.weights.buffer_name CUDA0
+[TIMING ts=20261031-130434] minimax_music3.ar.batched_prefill.graph.build_ms 1.571954
+[TIMING ts=20261031-130434] minimax_music3.ar.batched_prefill.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-130434] minimax_music3.ar.batched_prefill.graph.ctx_used_mb 3.128509521484375
+[TIMING ts=20261031-130434] minimax_music3.ar.batched_decode.graph.build_ms 5.350766
+[TIMING ts=20261031-130434] minimax_music3.ar.batched_decode.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-130434] minimax_music3.ar.batched_decode.graph.ctx_used_mb 3.2032623291015625
+[TIMING ts=20261031-130443] minimax_music3.ar.semantic_ms 23.46136
+[TIMING ts=20261031-130443] minimax_music3.ar.depth_ms 4785.112577999999
+[TIMING ts=20261031-130443] minimax_music3.ar.feedback_ms 8.426107000000007
+[TIMING ts=20261031-130443] minimax_music3.ar.lm_decode_ms 4022.473152999999
+[TIMING ts=20261031-130443] minimax_music3.ar.total_ms 8973.240815
+[TIMING ts=20261031-130443] minimax_music3.condition.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130443] minimax_music3.condition.weights.ctx_used_mb 0.000701904296875
+[TIMING ts=20261031-130443] minimax_music3.condition.weights.buffer_mb 96.0078125
+[TIMING ts=20261031-130443] minimax_music3.condition.weights.buffer_name CUDA0
+[TIMING ts=20261031-130443] minimax_music3.flow.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130443] minimax_music3.flow.weights.ctx_used_mb 0.1547698974609375
+[TIMING ts=20261031-130443] minimax_music3.flow.weights.buffer_mb 1331.656982421875
+[TIMING ts=20261031-130443] minimax_music3.flow.weights.buffer_name CUDA0
+[TIMING ts=20261031-130448] minimax_music3.condition.total_ms 9.434844
+[TIMING ts=20261031-130452] minimax_music3.flow.total_ms 3854.967949
+[TIMING ts=20261031-130452] minimax_music3.vocoder.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130452] minimax_music3.vocoder.weights.ctx_used_mb 0.0319366455078125
+[TIMING ts=20261031-130452] minimax_music3.vocoder.weights.buffer_mb 206.59521484375
+[TIMING ts=20261031-130452] minimax_music3.vocoder.weights.buffer_name CUDA0
+[TIMING ts=20261031-130453] minimax_music3.vocoder.total_ms 696.189433
+[TIMING ts=20261031-130453] minimax_music3.flow_vocoder.total_ms 9982.038041
+[TIMING ts=20261031-130453] session.wall_ms 38886.9888
+[TRACE ts=20261031-130538] runtime.model.contract_spec /home/justin/local_llm/audio.cpp/model_specs/minimax_music3.json
+[TRACE ts=20261031-130538] runtime.model.contract_spec /home/justin/local_llm/audio.cpp/model_specs/minimax_music3.json
+[TRACE ts=20261031-130538] server.model.id music3
+[TRACE ts=20261031-130538] server.model.path /home/justin/local_llm/huggingface/MiniMax-Music3-GGUF
+[TRACE ts=20261031-130538] server.model.family minimax_music3
+[TRACE ts=20261031-130538] server.model.task gen
+[TRACE ts=20261031-130538] server.model.mode offline
+[TRACE ts=20261031-130538] server.model.backend cuda
+[TRACE ts=20261031-130538] server.model.device 0
+[TRACE ts=20261031-130538] server.model.threads 4
+[TRACE ts=20261031-130538] server.model.session_option_count 1
+[TRACE ts=20261031-130538] server.model.session_options.minimax_music3.mem_saver false
+[TRACE ts=20261031-130538] runtime.model.family minimax_music3
+[TRACE ts=20261031-130538] runtime.model.variant MiniMax Music 3
+[TRACE ts=20261031-130538] runtime.model.root /home/justin/local_llm/huggingface/MiniMax-Music3-GGUF
+[TRACE ts=20261031-130538] runtime.model.discovered_config_count 8
+[TRACE ts=20261031-130538] runtime.model.discovered_weight_count 11
+[TRACE ts=20261031-130538] runtime.model.task_count 1
+[TRACE ts=20261031-130538] runtime.model.language_count 1
+[TRACE ts=20261031-130538] runtime.model.supports_speaker_reference 0
+[TRACE ts=20261031-130538] runtime.model.supports_style_condition 1
+[TRACE ts=20261031-130538] runtime.model.supports_timestamps 0
+[TRACE ts=20261031-130538] minimax_music3.perf_mode off
+[TRACE ts=20261031-130538] minimax_music3.kv_cache_alignment 1
+[TIMING ts=20261031-130539] minimax_music3.global_lm.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130539] minimax_music3.global_lm.weights.ctx_used_mb 0.1400299072265625
+[TIMING ts=20261031-130539] minimax_music3.global_lm.weights.buffer_mb 5325.677978515625
+[TIMING ts=20261031-130539] minimax_music3.global_lm.weights.buffer_name CUDA0
+[TIMING ts=20261031-130554] minimax_music3.depth.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130554] minimax_music3.depth.weights.ctx_used_mb 0.0164947509765625
+[TIMING ts=20261031-130554] minimax_music3.depth.weights.buffer_mb 681.015625
+[TIMING ts=20261031-130554] minimax_music3.depth.weights.buffer_name CUDA0
+[TIMING ts=20261031-130555] minimax_music3.condition.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130555] minimax_music3.condition.weights.ctx_used_mb 0.000701904296875
+[TIMING ts=20261031-130555] minimax_music3.condition.weights.buffer_mb 96.0078125
+[TIMING ts=20261031-130555] minimax_music3.condition.weights.buffer_name CUDA0
+[TIMING ts=20261031-130555] minimax_music3.flow.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130555] minimax_music3.flow.weights.ctx_used_mb 0.1547698974609375
+[TIMING ts=20261031-130555] minimax_music3.flow.weights.buffer_mb 1331.656982421875
+[TIMING ts=20261031-130555] minimax_music3.flow.weights.buffer_name CUDA0
+[TIMING ts=20261031-130600] minimax_music3.vocoder.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-130600] minimax_music3.vocoder.weights.ctx_used_mb 0.0319366455078125
+[TIMING ts=20261031-130600] minimax_music3.vocoder.weights.buffer_mb 206.59521484375
+[TIMING ts=20261031-130600] minimax_music3.vocoder.weights.buffer_name CUDA0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=POST path=/v1/tasks/run content_length=521 transfer_encoding=<none> incremental=false prefetched_body_bytes=521
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/tasks/run body_bytes=521
+[TIMING ts=20261031-130611] minimax_music3.ar.batched_prefill.graph.build_ms 2.67635
+[TIMING ts=20261031-130611] minimax_music3.ar.batched_prefill.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-130611] minimax_music3.ar.batched_prefill.graph.ctx_used_mb 3.128509521484375
+[TIMING ts=20261031-130611] minimax_music3.ar.batched_decode.graph.build_ms 49.47489
+[TIMING ts=20261031-130611] minimax_music3.ar.batched_decode.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-130611] minimax_music3.ar.batched_decode.graph.ctx_used_mb 3.2032623291015625
+[TIMING ts=20261031-130620] minimax_music3.ar.semantic_ms 24.347720999999986
+[TIMING ts=20261031-130620] minimax_music3.ar.depth_ms 4900.819409000003
+[TIMING ts=20261031-130620] minimax_music3.ar.feedback_ms 8.317609999999998
+[TIMING ts=20261031-130620] minimax_music3.ar.lm_decode_ms 4033.633783999999
+[TIMING ts=20261031-130620] minimax_music3.ar.total_ms 9364.253886
+[TIMING ts=20261031-130620] minimax_music3.condition.total_ms 10.151458
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[TIMING ts=20261031-130624] minimax_music3.flow.total_ms 3873.80322
+[TIMING ts=20261031-130625] minimax_music3.vocoder.total_ms 698.145861
+[TIMING ts=20261031-130625] minimax_music3.flow_vocoder.total_ms 4583.305192
+[TIMING ts=20261031-130625] session.wall_ms 13958.001242
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=POST path=/v1/tasks/run content_length=521 transfer_encoding=<none> incremental=false prefetched_body_bytes=521
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/tasks/run body_bytes=521
+[TIMING ts=20261031-130626] minimax_music3.ar.batched_prefill.graph.build_ms 1.846149
+[TIMING ts=20261031-130626] minimax_music3.ar.batched_prefill.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-130626] minimax_music3.ar.batched_prefill.graph.ctx_used_mb 3.128509521484375
+[TIMING ts=20261031-130626] minimax_music3.ar.batched_decode.graph.build_ms 30.28533
+[TIMING ts=20261031-130626] minimax_music3.ar.batched_decode.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-130626] minimax_music3.ar.batched_decode.graph.ctx_used_mb 3.2032623291015625
+[TIMING ts=20261031-130635] minimax_music3.ar.semantic_ms 23.73039200000001
+[TIMING ts=20261031-130635] minimax_music3.ar.depth_ms 4761.000465999999
+[TIMING ts=20261031-130635] minimax_music3.ar.feedback_ms 8.289732
+[TIMING ts=20261031-130635] minimax_music3.ar.lm_decode_ms 4038.528676000002
+[TIMING ts=20261031-130635] minimax_music3.ar.total_ms 8998.596049
+[TIMING ts=20261031-130635] minimax_music3.condition.total_ms 9.46713
+[TIMING ts=20261031-130639] minimax_music3.flow.total_ms 3882.254734
+[TIMING ts=20261031-130639] minimax_music3.vocoder.total_ms 692.538875
+[TIMING ts=20261031-130639] minimax_music3.flow_vocoder.total_ms 4585.379695
+[TIMING ts=20261031-130639] session.wall_ms 13585.312431
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[TRACE ts=20261031-132631] runtime.model.contract_spec /home/justin/local_llm/audio.cpp/model_specs/minimax_music3.json
+[TRACE ts=20261031-132631] runtime.model.contract_spec /home/justin/local_llm/audio.cpp/model_specs/minimax_music3.json
+[TRACE ts=20261031-132631] server.model.id music3
+[TRACE ts=20261031-132631] server.model.path /home/justin/local_llm/huggingface/MiniMax-Music3-GGUF
+[TRACE ts=20261031-132631] server.model.family minimax_music3
+[TRACE ts=20261031-132631] server.model.task gen
+[TRACE ts=20261031-132631] server.model.mode offline
+[TRACE ts=20261031-132631] server.model.backend cuda
+[TRACE ts=20261031-132631] server.model.device 0
+[TRACE ts=20261031-132631] server.model.threads 4
+[TRACE ts=20261031-132631] server.model.session_option_count 1
+[TRACE ts=20261031-132631] server.model.session_options.minimax_music3.mem_saver false
+[TRACE ts=20261031-132631] runtime.model.family minimax_music3
+[TRACE ts=20261031-132631] runtime.model.variant MiniMax Music 3
+[TRACE ts=20261031-132631] runtime.model.root /home/justin/local_llm/huggingface/MiniMax-Music3-GGUF
+[TRACE ts=20261031-132631] runtime.model.discovered_config_count 8
+[TRACE ts=20261031-132631] runtime.model.discovered_weight_count 11
+[TRACE ts=20261031-132631] runtime.model.task_count 1
+[TRACE ts=20261031-132631] runtime.model.language_count 1
+[TRACE ts=20261031-132631] runtime.model.supports_speaker_reference 0
+[TRACE ts=20261031-132631] runtime.model.supports_style_condition 1
+[TRACE ts=20261031-132631] runtime.model.supports_timestamps 0
+[TRACE ts=20261031-132631] minimax_music3.perf_mode off
+[TRACE ts=20261031-132631] minimax_music3.kv_cache_alignment 1
+[TIMING ts=20261031-132632] minimax_music3.global_lm.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-132632] minimax_music3.global_lm.weights.ctx_used_mb 0.1400299072265625
+[TIMING ts=20261031-132632] minimax_music3.global_lm.weights.buffer_mb 5325.677978515625
+[TIMING ts=20261031-132632] minimax_music3.global_lm.weights.buffer_name CUDA0
+[TIMING ts=20261031-132646] minimax_music3.depth.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-132646] minimax_music3.depth.weights.ctx_used_mb 0.0164947509765625
+[TIMING ts=20261031-132646] minimax_music3.depth.weights.buffer_mb 681.015625
+[TIMING ts=20261031-132646] minimax_music3.depth.weights.buffer_name CUDA0
+[TIMING ts=20261031-132648] minimax_music3.condition.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-132648] minimax_music3.condition.weights.ctx_used_mb 0.000701904296875
+[TIMING ts=20261031-132648] minimax_music3.condition.weights.buffer_mb 96.0078125
+[TIMING ts=20261031-132648] minimax_music3.condition.weights.buffer_name CUDA0
+[TIMING ts=20261031-132648] minimax_music3.flow.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-132648] minimax_music3.flow.weights.ctx_used_mb 0.1547698974609375
+[TIMING ts=20261031-132648] minimax_music3.flow.weights.buffer_mb 1331.656982421875
+[TIMING ts=20261031-132648] minimax_music3.flow.weights.buffer_name CUDA0
+[TIMING ts=20261031-132653] minimax_music3.vocoder.weights.ctx_reserved_mb 32
+[TIMING ts=20261031-132653] minimax_music3.vocoder.weights.ctx_used_mb 0.0319366455078125
+[TIMING ts=20261031-132653] minimax_music3.vocoder.weights.buffer_mb 206.59521484375
+[TIMING ts=20261031-132653] minimax_music3.vocoder.weights.buffer_name CUDA0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=POST path=/v1/audio/music-generations content_length=108 transfer_encoding=<none> incremental=false prefetched_body_bytes=108
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/audio/music-generations body_bytes=108
+[TIMING ts=20261031-132703] minimax_music3.ar.batched_prefill.graph.build_ms 1.684124
+[TIMING ts=20261031-132703] minimax_music3.ar.batched_prefill.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-132703] minimax_music3.ar.batched_prefill.graph.ctx_used_mb 3.128509521484375
+[TIMING ts=20261031-132703] minimax_music3.ar.batched_decode.graph.build_ms 67.052167
+[TIMING ts=20261031-132703] minimax_music3.ar.batched_decode.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-132703] minimax_music3.ar.batched_decode.graph.ctx_used_mb 3.2032623291015625
+[TIMING ts=20261031-132720] minimax_music3.ar.semantic_ms 46.23683000000002
+[TIMING ts=20261031-132720] minimax_music3.ar.depth_ms 9005.978329999996
+[TIMING ts=20261031-132720] minimax_music3.ar.feedback_ms 15.601128
+[TIMING ts=20261031-132720] minimax_music3.ar.lm_decode_ms 7690.254509999997
+[TIMING ts=20261031-132720] minimax_music3.ar.total_ms 17122.810637
+[TIMING ts=20261031-132720] minimax_music3.condition.total_ms 10.378327
+[TIMING ts=20261031-132726] minimax_music3.flow.total_ms 5828.772711
+[TIMING ts=20261031-132726] minimax_music3.condition.total_ms 9.394065
+[TIMING ts=20261031-132731] minimax_music3.flow.total_ms 5805.872363
+[TIMING ts=20261031-132731] minimax_music3.condition.total_ms 8.12156
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[TIMING ts=20261031-132737] minimax_music3.flow.total_ms 5252.103132
+[TIMING ts=20261031-132737] minimax_music3.vocoder.total_ms 696.079437
+[TIMING ts=20261031-132738] minimax_music3.vocoder.total_ms 682.7745
+[TIMING ts=20261031-132739] minimax_music3.vocoder.total_ms 613.216257
+[TIMING ts=20261031-132739] minimax_music3.flow_vocoder.total_ms 18908.032666
+[TIMING ts=20261031-132739] session.wall_ms 36040.008247
+[SERVER_HTTP_DEBUG] http.headers method=POST path=/v1/audio/music-generations content_length=1018 transfer_encoding=<none> incremental=false prefetched_body_bytes=1018
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/audio/music-generations body_bytes=1018
+[TIMING ts=20261031-132749] minimax_music3.ar.batched_prefill.graph.build_ms 2.141135
+[TIMING ts=20261031-132749] minimax_music3.ar.batched_prefill.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-132749] minimax_music3.ar.batched_prefill.graph.ctx_used_mb 3.128509521484375
+[TIMING ts=20261031-132750] minimax_music3.ar.batched_decode.graph.build_ms 164.462371
+[TIMING ts=20261031-132750] minimax_music3.ar.batched_decode.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-132750] minimax_music3.ar.batched_decode.graph.ctx_used_mb 3.2032623291015625
+[TIMING ts=20261031-132824] minimax_music3.ar.semantic_ms 88.80753399999996
+[TIMING ts=20261031-132824] minimax_music3.ar.depth_ms 17762.02339299999
+[TIMING ts=20261031-132824] minimax_music3.ar.feedback_ms 30.115005999999973
+[TIMING ts=20261031-132824] minimax_music3.ar.lm_decode_ms 16455.964333999986
+[TIMING ts=20261031-132824] minimax_music3.ar.total_ms 34896.871789
+[TIMING ts=20261031-132824] minimax_music3.condition.total_ms 9.720741
+[TIMING ts=20261031-132830] minimax_music3.flow.total_ms 5813.381001
+[TIMING ts=20261031-132830] minimax_music3.condition.total_ms 14.700682
+[TIMING ts=20261031-132836] minimax_music3.flow.total_ms 5915.356729
+[TIMING ts=20261031-132836] minimax_music3.condition.total_ms 9.551173
+[TIMING ts=20261031-132842] minimax_music3.flow.total_ms 5870.168483
+[TIMING ts=20261031-132842] minimax_music3.condition.total_ms 9.372852
+[TIMING ts=20261031-132848] minimax_music3.flow.total_ms 5845.819361
+[TIMING ts=20261031-132848] minimax_music3.condition.total_ms 9.309476
+[TIMING ts=20261031-132854] minimax_music3.flow.total_ms 5868.159854
+[TIMING ts=20261031-132854] minimax_music3.condition.total_ms 9.366324
+[TIMING ts=20261031-132859] minimax_music3.flow.total_ms 5848.395865
+[TIMING ts=20261031-132859] minimax_music3.condition.total_ms 7.601272
+[TIMING ts=20261031-132904] minimax_music3.flow.total_ms 4301.41161
+[TIMING ts=20261031-132904] minimax_music3.vocoder.total_ms 691.667666
+[TIMING ts=20261031-132905] minimax_music3.vocoder.total_ms 685.729289
+[TIMING ts=20261031-132906] minimax_music3.vocoder.total_ms 684.683731
+[TIMING ts=20261031-132907] minimax_music3.vocoder.total_ms 684.826357
+[TIMING ts=20261031-132907] minimax_music3.vocoder.total_ms 686.105154
+[TIMING ts=20261031-132908] minimax_music3.vocoder.total_ms 688.47106
+[TIMING ts=20261031-132908] minimax_music3.vocoder.total_ms 531.68986
+[TIMING ts=20261031-132908] minimax_music3.flow_vocoder.total_ms 44188.817076
+[TIMING ts=20261031-132908] session.wall_ms 79102.487532
+[SERVER_HTTP_DEBUG] http.headers method=POST path=/v1/audio/music-generations content_length=1018 transfer_encoding=<none> incremental=false prefetched_body_bytes=1018
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/audio/music-generations body_bytes=1018
+[TIMING ts=20261031-132921] minimax_music3.ar.batched_prefill.graph.build_ms 3.028151
+[TIMING ts=20261031-132921] minimax_music3.ar.batched_prefill.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-132921] minimax_music3.ar.batched_prefill.graph.ctx_used_mb 3.128509521484375
+[TIMING ts=20261031-132921] minimax_music3.ar.batched_decode.graph.build_ms 153.380143
+[TIMING ts=20261031-132921] minimax_music3.ar.batched_decode.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-132921] minimax_music3.ar.batched_decode.graph.ctx_used_mb 3.2032623291015625
+[TIMING ts=20261031-132956] minimax_music3.ar.semantic_ms 89.42491699999992
+[TIMING ts=20261031-132956] minimax_music3.ar.depth_ms 17785.337375999985
+[TIMING ts=20261031-132956] minimax_music3.ar.feedback_ms 30.47438699999998
+[TIMING ts=20261031-132956] minimax_music3.ar.lm_decode_ms 16458.620326999993
+[TIMING ts=20261031-132956] minimax_music3.ar.total_ms 34916.941716
+[TIMING ts=20261031-132956] minimax_music3.condition.total_ms 9.453431
+[TIMING ts=20261031-133002] minimax_music3.flow.total_ms 5846.937208
+[TIMING ts=20261031-133002] minimax_music3.condition.total_ms 9.316663
+[TIMING ts=20261031-133007] minimax_music3.flow.total_ms 5832.878071
+[TIMING ts=20261031-133007] minimax_music3.condition.total_ms 9.157077
+[TIMING ts=20261031-133013] minimax_music3.flow.total_ms 5812.507427
+[TIMING ts=20261031-133013] minimax_music3.condition.total_ms 9.182853
+[TIMING ts=20261031-133019] minimax_music3.flow.total_ms 5832.559504
+[TIMING ts=20261031-133019] minimax_music3.condition.total_ms 9.262055
+[TIMING ts=20261031-133025] minimax_music3.flow.total_ms 5840.337168
+[TIMING ts=20261031-133025] minimax_music3.condition.total_ms 9.252935
+[TIMING ts=20261031-133031] minimax_music3.flow.total_ms 5818.721453
+[TIMING ts=20261031-133031] minimax_music3.condition.total_ms 7.585802
+[TIMING ts=20261031-133035] minimax_music3.flow.total_ms 4316.355966
+[TIMING ts=20261031-133036] minimax_music3.vocoder.total_ms 694.160826
+[TIMING ts=20261031-133037] minimax_music3.vocoder.total_ms 685.500584
+[TIMING ts=20261031-133037] minimax_music3.vocoder.total_ms 689.084486
+[TIMING ts=20261031-133038] minimax_music3.vocoder.total_ms 680.18418
+[TIMING ts=20261031-133039] minimax_music3.vocoder.total_ms 687.13233
+[TIMING ts=20261031-133039] minimax_music3.vocoder.total_ms 684.512808
+[TIMING ts=20261031-133040] minimax_music3.vocoder.total_ms 532.846332
+[TIMING ts=20261031-133040] minimax_music3.flow_vocoder.total_ms 44019.64334
+[TIMING ts=20261031-133040] session.wall_ms 79029.418957
+[SERVER_HTTP_DEBUG] http.headers method=POST path=/v1/audio/music-generations content_length=27 transfer_encoding=<none> incremental=false prefetched_body_bytes=27
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/audio/music-generations body_bytes=27
+[SERVER_HTTP_DEBUG] http.headers method=POST path=/v1/audio/music-generations content_length=25 transfer_encoding=<none> incremental=false prefetched_body_bytes=25
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/audio/music-generations body_bytes=25
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=POST path=/v1/tasks/run content_length=443 transfer_encoding=<none> incremental=false prefetched_body_bytes=443
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/tasks/run body_bytes=443
+[TIMING ts=20261031-133120] minimax_music3.ar.batched_prefill.graph.build_ms 1.690621
+[TIMING ts=20261031-133120] minimax_music3.ar.batched_prefill.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-133120] minimax_music3.ar.batched_prefill.graph.ctx_used_mb 3.128509521484375
+[TIMING ts=20261031-133120] minimax_music3.ar.batched_decode.graph.build_ms 16.379568
+[TIMING ts=20261031-133120] minimax_music3.ar.batched_decode.graph.ctx_reserved_mb 32
+[TIMING ts=20261031-133120] minimax_music3.ar.batched_decode.graph.ctx_used_mb 3.2032623291015625
+[TIMING ts=20261031-133129] minimax_music3.ar.semantic_ms 24.907183999999994
+[TIMING ts=20261031-133129] minimax_music3.ar.depth_ms 4759.101353
+[TIMING ts=20261031-133129] minimax_music3.ar.feedback_ms 8.177750999999999
+[TIMING ts=20261031-133129] minimax_music3.ar.lm_decode_ms 4059.777990000001
+[TIMING ts=20261031-133129] minimax_music3.ar.total_ms 8994.272541
+[TIMING ts=20261031-133129] minimax_music3.condition.total_ms 9.346057
+[TIMING ts=20261031-133131] minimax_music3.flow.total_ms 2321.327984
+[TIMING ts=20261031-133132] minimax_music3.vocoder.total_ms 692.566407
+[TIMING ts=20261031-133132] minimax_music3.flow_vocoder.total_ms 3024.4378
+[TIMING ts=20261031-133132] session.wall_ms 12030.522962
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/ content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/ body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/health content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/health body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/v1/models content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/models body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/favicon.ico content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/favicon.ico body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/v1/audio/voices content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/audio/voices body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/v1/models content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/models body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/v1/models content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/v1/models body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0
+[SERVER_HTTP_DEBUG] http.headers method=GET path=/api/v1.3/containers content_length=<none> transfer_encoding=<none> incremental=false prefetched_body_bytes=0
+[SERVER_HTTP_DEBUG] http.body_ready path=/api/v1.3/containers body_bytes=0

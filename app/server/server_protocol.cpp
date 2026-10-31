@@ -683,6 +683,100 @@ encode_pcm16_samples(const engine::runtime::AudioBuffer &audio) {
   return out;
 }
 
+MlxMusicRemap remap_mlx_music_body(const std::string & body_text,
+                                   const std::string & fallback_model_id) {
+  MlxMusicRemap out;
+  auto fail = [&](const std::string & message) {
+    out.error = error_response(400, message, "invalid_request_error");
+  };
+  const auto body = engine::io::json::parse(body_text);
+  if (!body.is_object()) {
+    fail("request body must be a JSON object");
+    return out;
+  }
+
+  // prompt: the full structured caption (mlx-serve validation error verbatim).
+  const auto * prompt = body.find("prompt");
+  if (prompt == nullptr || !prompt->is_string() || prompt->as_string().empty()) {
+    fail("missing 'prompt' (style/genre/mood description)");
+    return out;
+  }
+
+  // lyrics | instrumental. The audio.cpp MiniMax Music 3 port requires a
+  // non-empty lyrics field, so instrumental requests map to the lone
+  // [instrumental] tag; the caption is expected to declare the piece
+  // instrumental.
+  std::string lyrics;
+  const auto * lyrics_value = body.find("lyrics");
+  const auto * instrumental = body.find("instrumental");
+  if (lyrics_value != nullptr && lyrics_value->is_string() &&
+      !lyrics_value->as_string().empty()) {
+    lyrics = lyrics_value->as_string();
+  } else if (instrumental != nullptr && instrumental->is_bool() &&
+             instrumental->as_bool()) {
+    lyrics = "[instrumental]";
+  } else {
+    fail("missing 'lyrics' (MiniMax Music 3 is lyric-conditioned; structure "
+         "tags like [verse] on their own lines) or send \"instrumental\": true");
+    return out;
+  }
+
+  // duration_seconds: upper bound on the AR frame budget; the model may end
+  // sooner. Absent means 60, matching the mlx-serve default.
+  double duration = 60.0;
+  if (const auto * duration_value = body.find("duration_seconds")) {
+    if (!duration_value->is_number()) {
+      fail("'duration_seconds' must be a number");
+      return out;
+    }
+    duration = duration_value->as_number();
+    if (duration < 1.0 || duration > 600.0) {
+      fail("'duration_seconds' must be in [1, 600]");
+      return out;
+    }
+  }
+
+  std::string options =
+      std::string("\"lyrics\":") + json_quote(lyrics) +
+      ",\"duration_sec\":" + engine::io::json::stringify_number(duration);
+  if (const auto * seed = body.find("seed")) {
+    if (!seed->is_number()) {
+      fail("'seed' must be an integer");
+      return out;
+    }
+    options += ",\"seed\":" + engine::io::json::stringify_number(seed->as_number());
+  }
+  // Optional tuning pass-throughs (not part of the mlx contract; accepted so
+  // operators can steer the audio.cpp runtime without changing clients).
+  for (const char * key : {"num_inference_steps", "guidance_scale",
+                           "ar_guidance_scale", "top_k"}) {
+    const auto * value = body.find(key);
+    if (value != nullptr && value->is_number()) {
+      options += std::string(",\"") + key + "\":" +
+                 engine::io::json::stringify_number(value->as_number());
+    }
+  }
+
+  std::string model_id;
+  if (const auto * model = body.find("model")) {
+    if (model->is_string() && !model->as_string().empty()) {
+      model_id = model->as_string();
+    }
+  } else if (!fallback_model_id.empty()) {
+    model_id = fallback_model_id;
+  }
+  if (model_id.empty()) {
+    fail("include a 'model' field (server has no single configured model to "
+         "default to)");
+    return out;
+  }
+
+  out.body = std::string("{\"model\":") + json_quote(model_id) +
+             ",\"request\":{\"text\":" + json_quote(prompt->as_string()) +
+             ",\"options\":{" + options + "}}}";
+  return out;
+}
+
 void write_sse(HttpStreamWriter &writer, const std::string &json) {
   writer.write("data: " + json + "\n\n");
 }

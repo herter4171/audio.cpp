@@ -86,6 +86,20 @@ std::vector<uint8_t>
 encode_pcm16_wav(const engine::runtime::AudioBuffer &audio);
 std::vector<uint8_t>
 encode_pcm16_samples(const engine::runtime::AudioBuffer &audio);
+
+// mlx-serve-compatible music generation entry point (POST
+// /v1/audio/music-generations). Remaps the external contract
+// {prompt, lyrics | instrumental, duration_seconds, seed, model?} onto the
+// /v1/tasks/run body {model, request: {text, options: {...}}}. The handler
+// runs the task and returns the raw WAV bytes, not a JSON envelope: the
+// reference client (pilgrim-dot-farm) writes the response body straight to
+// disk. Error messages mirror the mlx-serve validation text.
+struct MlxMusicRemap {
+    std::optional<std::string> body;  // remapped /v1/tasks/run JSON body
+    std::optional<HttpResponse> error;  // 400 when the mlx body is invalid
+};
+MlxMusicRemap remap_mlx_music_body(const std::string & body_text,
+                                   const std::string & fallback_model_id);
 void write_sse(HttpStreamWriter &writer, const std::string &json);
 void write_sse_done(HttpStreamWriter &writer);
 bool bool_field(const engine::io::json::Value &object, const std::string &key,
